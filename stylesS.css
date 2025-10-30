@@ -1,0 +1,188 @@
+/* === RESET GENERAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Code Pro", monospace;
+}
+
+/* === BODY & FONDO GALÁCTICO === */
+body {
+  background: radial-gradient(circle at top, #0a0a0a 0%, #000000 100%);
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  color: #ecf0f1;
+}
+
+/* === EFECTO DE ESTRELLAS === */
+@keyframes estrellas {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1000px); }
+}
+
+body::before, body::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  animation: estrellas linear infinite;
+}
+
+body::before {
+  box-shadow:
+    100px 200px yellow, 150px 400px white, 300px 700px white,
+    500px 900px white, 600px 200px white, 900px 400px white,
+    1200px 600px white, 1300px 1000px white,
+    1400px 300px white, 1600px 800px yellow,
+    1800px 500px yellow, 1900px 100px white;
+  animation-duration: 60s;
+}
+
+body::after {
+  box-shadow:
+    200px 300px yellow, 400px 600px #dcdcdc,
+    800px 900px #ffffff, 1000px 700px #f0f0f0,
+    1300px 500px #e0e0e0, 1600px 400px #fff,
+    1800px 900px #fafafa;
+  animation-duration: 90s;
+}
+
+/*Nevagcion */
+.navbar {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+ background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 8px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(255,255,255,0.15);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.navbar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(0,255,255,0.3);
+}
+
+/* === Titulo principal === */
+#nombre h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin: 120px 20px 10px;
+  text-shadow: 0 0 20px #00ffff;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+.subtitulo {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #00ffffaa;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 15px #00ffff; }
+  to { text-shadow: 0 0 35px #00ffff; }
+}
+
+/* === SECCIONES (Tarjetas) ===*/
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 700px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 25px rgba(0,255,255,0.1);
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(0,255,255,0.3);
+}
+
+/* === TÍTULOS DE SECCIONES === */
+h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffffaa;
+}
+
+/* === PÁRRAFOS === */
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+  margin: 0 10px;
+}
+
+/* === LISTAS === */
+ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+ul li::before {
+  content: '• ';
+  color: #00ffff;
+}
+
+ul li {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+/* === FOOTER === */
+footer {
+text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #00ffff99;
+}
+
+/* === ANIMACIÓN DE ENTRADA === */
+@keyframes aparecer {
+  0% { opacity: 0; transform: translateY(30px);}
+  100% { opacity: 1; transform: translateY(0);}
+}
+
+.card, #nombre {
+  animation: aparecer 1s ease-out forwards;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  #nombre h1 {
+    font-size: 2rem;
+  }
+  .subtitulo {
+    font-size: 1rem;
+  }
+  .card {
+    width: 90%;
+    padding: 15px;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  ul li {
+    font-size: 0.95rem;
+  }
+}
+
+#final {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #00ffff99;
+    }

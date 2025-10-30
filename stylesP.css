@@ -1,0 +1,201 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Code Pro", monospace;
+}
+
+
+body {
+  background: radial-gradient(circle at top, #0a0a0a 0%, #000000 100%);
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  color: white;
+}
+
+/* === EFECTO DE ESTRELLAS === */
+@keyframes estrellas {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1000px); }
+}
+
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  animation: estrellas 60s linear infinite;
+  z-index: 0;
+}
+
+body::before {
+  box-shadow:
+    100px 200px yellow, 150px 400px white, 300px 700px white,
+    500px 900px white, 600px 200px white, 900px 400px white,
+    1200px 600px white, 1300px 1000px white,
+    1400px 300px white, 1600px 800px yellow,
+    1800px 500px yellow, 1900px 100px white;
+}
+
+body::after {
+  box-shadow:
+    200px 300px yellow, 400px 600px #dcdcdc,
+    800px 900px #ffffff, 1000px 700px #f0f0f0,
+    1300px 500px #e0e0e0, 1600px 400px #fff,
+    1800px 900px #fafafa;
+  animation-duration: 90s;
+}
+
+/* === NAVBAR (botón de inicio) === */
+.navbar {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 8px 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.navbar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,255,255,0.4);
+}
+
+/* === TÍTULO === */
+h1 {
+  font-size: 4.5rem;
+  text-align: center;
+  color: #ecf0f1;
+  margin: 120px 20px 60px;
+  text-shadow: 0 0 15px rgba(0,255,255,0.5);
+  letter-spacing: 1.5px;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #00ffff; }
+  to { text-shadow: 0 0 25px #00ffff; }
+}
+
+/* === CONTENEDOR DE PROYECTOS === */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0 auto 80px;
+  width: 90%;
+  max-width: 1200px;
+  z-index: 1;
+  position: relative;
+  animation: aparecer 1.2s ease-out forwards;
+}
+
+@keyframes aparecer {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* === TARJETAS DE PROYECTOS === */
+.proyectos {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  width: 250px;
+  height: 180px;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.proyectos:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 0 25px rgba(0,255,255,0.4);
+}
+
+/* === IMÁGENES DE PROYECTOS === */
+.imga {
+  display: block;
+  margin: 15px auto 10px;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.proyectos:hover .imga {
+  transform: scale(1.1);
+}
+
+/* === TÍTULOS DE PROYECTO === */
+h2 {
+  color: #ecf0f1;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+/* === ÍCONO DE GITHUB === */
+.icon_git img {
+  transition: transform 0.3s ease;
+  width: 30px;
+}
+
+.icon_git img:hover {
+  transform: scale(1.2) rotate(10deg);
+  filter: drop-shadow(0 0 10px #00ffff);
+}
+
+/* === ENLACES === */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === SCROLLBAR PERSONALIZADO === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ffff, #0088ff);
+  border-radius: 10px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+    margin: 100px 10px 50px;
+  }
+
+  .proyectos {
+    width: 85%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .imga {
+    width: 70px;
+    height: 70px;
+  }
+}
+#final{
+  text-align: center;
+    font-size: 0.9rem;
+    color: #00ffff99;
+}
